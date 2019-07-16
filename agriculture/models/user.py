@@ -2,7 +2,8 @@
 from .base import BaseModel
 from peewee import (
     CharField,
-    FixedCharField
+    FixedCharField,
+    IntegerField
 )
 
 
@@ -11,6 +12,7 @@ from peewee import (
 
 class User(BaseModel):
     """用户类"""
+    id = IntegerField()
     name = CharField()
     password = CharField()
     mobile = FixedCharField(11)

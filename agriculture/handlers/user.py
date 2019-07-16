@@ -24,10 +24,11 @@ class LoginHandler(BaseHandler):
         except Exception as f:
             user = User()
         # 根据查询对象的密码进行比对
-
+        
         if user.password == password:
             # 设置安全cookie，表示用户已经登录
-            self.set_secure_cookie("login", user.name)
+
+            self.set_secure_cookie("login", str(user.id))
             self.write("oh, %s! you have logined successfully!" %user.name)
         else:
             self.write("用户名或密码错误")
